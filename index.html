@@ -1,0 +1,706 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Негласный договор — онлайн-группа Анастасии Веробей</title>
+<meta name="description" content="Онлайн-группа для женщин в долгих отношениях: шесть встреч, чтобы прочитать вслух правила, о которых в паре молчат, и переписать их.">
+<meta name="theme-color" content="#07060C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Piazzolla:ital,opsz,wght@0,8..30,300..900;1,8..30,300..900&family=Geologica:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#07060C; --bg-2:#0E0C18; --fg:#F4F1F7; --fg-2:rgba(244,241,247,.6); --fg-3:rgba(244,241,247,.34);
+  --peach:#FFB08A; --lilac:#9D8CFF; --paper:#FFFFFF; --ink:#0B0A12; --ink-2:rgba(11,10,18,.56); --line:rgba(244,241,247,.12); --line-d:rgba(11,10,18,.12);
+  --d:"Piazzolla","Times New Roman",serif; --t:"Geologica",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--bg)}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{background:var(--bg);color:var(--fg);font:300 18px/1.6 var(--t);-webkit-font-smoothing:antialiased;overflow-x:clip}
+h1,h2,h3{font-weight:400;text-wrap:balance}
+p,li,dd{text-wrap:pretty}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--peach);outline-offset:4px}
+.nw{white-space:nowrap}
+.wrap{max-width:1440px;margin:0 auto;padding:0 clamp(20px,4vw,64px)}
+.d{font-family:var(--d);font-variation-settings:"opsz" 30}
+.cap{font:400 13px/1.4 var(--t);letter-spacing:.02em;color:var(--fg-3)}
+.light .cap{color:var(--ink-2)}
+
+/* фон: шейдер один на всю страницу, секции с заливкой его перекрывают */
+#gl{position:fixed;inset:0;width:100%;height:100%;z-index:0;display:block}
+.grain{position:fixed;inset:-100%;z-index:50;pointer-events:none;opacity:.055;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:300px 300px}
+.motion .grain{animation:grain 1.2s steps(4) infinite}
+@keyframes grain{0%{transform:translate(0,0)}25%{transform:translate(-2%,3%)}50%{transform:translate(3%,-1%)}75%{transform:translate(-1%,-3%)}100%{transform:translate(2%,2%)}}
+main{position:relative;z-index:1}
+section{position:relative}
+.solid{background:var(--bg)}
+.light{background:var(--paper);color:var(--ink)}
+
+/* курсор */
+.cur{position:fixed;left:0;top:0;z-index:60;pointer-events:none;width:10px;height:10px;border-radius:50%;background:var(--peach);transform:translate(-50%,-50%);mix-blend-mode:difference;display:none}
+.cur-r{position:fixed;left:0;top:0;z-index:60;pointer-events:none;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,176,138,.7);transform:translate(-50%,-50%);transition:width .3s,height .3s,opacity .3s;display:none}
+@media (pointer:fine){.motion .cur,.motion .cur-r{display:block}.motion *{cursor:none}}
+.cur-r.on{width:72px;height:72px}
+
+/* кнопки */
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;font:400 15px/1 var(--t);text-decoration:none;padding:0 30px;height:56px;border-radius:999px;background:var(--fg);color:var(--ink);overflow:hidden;transition:color .35s;isolation:isolate}
+.btn:before{content:"";position:absolute;inset:0;border-radius:inherit;background:var(--peach);transform:scaleY(0);transform-origin:bottom;transition:transform .45s cubic-bezier(.7,0,.2,1);z-index:-1}
+.btn:hover:before{transform:scaleY(1);transform-origin:top}
+.btn.ghost{background:transparent;color:var(--fg);box-shadow:inset 0 0 0 1px var(--line)}
+.btn.ghost:hover{color:var(--ink)}
+.light .btn{background:var(--ink);color:var(--fg)}
+.light .btn:hover{color:var(--ink)}
+
+/* шапка */
+.top{position:fixed;inset:0 0 auto;z-index:40;mix-blend-mode:difference;color:#fff}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
+.top .name{text-decoration:none;font:400 15px var(--t);display:flex;flex-direction:column;line-height:1.25}
+.top .name span{color:rgba(255,255,255,.55);font-size:13px}
+.top a.go{font:400 15px var(--t);text-decoration:none;display:flex;align-items:center;gap:10px}
+.top a.go i{width:8px;height:8px;border-radius:50%;background:#fff;transition:transform .3s}
+.top a.go:hover i{transform:scale(1.8)}
+
+/* герой */
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:clamp(28px,4vh,56px)}
+.hero .title{font:italic 700 clamp(72px,15.4vw,236px)/.84 var(--d);font-variation-settings:"opsz" 30;letter-spacing:-.035em;mix-blend-mode:difference;color:#fff;margin-left:-.04em}
+.hero .title .ln{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}
+.hero .title .ln span{display:block}
+.hero .title .ln:last-child{padding-left:.42em}
+.hero .sub{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-top:clamp(28px,4vh,52px)}
+.hero .lead{font-size:clamp(17px,1.35vw,21px);line-height:1.5;max-width:30em;color:var(--fg-2)}
+.hero .lead b{color:var(--fg);font-weight:400}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.hero .meta{display:flex;gap:clamp(18px,3vw,48px);justify-content:flex-end;flex-wrap:wrap}
+.hero .meta div{font-size:14px;color:var(--fg-3)}
+.hero .meta b{display:block;font:italic 400 clamp(32px,3vw,46px)/1 var(--d);color:var(--fg);margin-bottom:6px}
+.hint{position:absolute;right:clamp(20px,4vw,64px);top:50%;transform:translateY(-50%) rotate(90deg);transform-origin:right center;font-size:12px;letter-spacing:.2em;color:var(--fg-3);display:flex;align-items:center;gap:14px}
+.hint i{width:60px;height:1px;background:var(--fg-3);display:block;overflow:hidden;position:relative}
+.motion .hint i:after{content:"";position:absolute;inset:0;background:var(--peach);transform:translateX(-100%);animation:hint 2s cubic-bezier(.7,0,.2,1) infinite}
+@keyframes hint{to{transform:translateX(100%)}}
+
+/* правила: вводный манифест */
+.rules{padding:clamp(120px,16vh,200px) 0}
+.rules .big{font:300 clamp(30px,4.6vw,70px)/1.12 var(--d);font-variation-settings:"opsz" 30;letter-spacing:-.015em;max-width:18em}
+.rules .big em{font-style:italic;color:var(--peach)}
+.rules .big .w{display:inline-block;opacity:.18;transition:opacity .3s}
+.rules .big .w.on{opacity:1}
+.rules ol{list-style:none;margin-top:clamp(56px,8vh,96px);border-top:1px solid var(--line)}
+.rules li{display:grid;grid-template-columns:120px 1fr;gap:24px;align-items:baseline;padding:24px 0;border-bottom:1px solid var(--line);font:400 clamp(22px,2.4vw,34px)/1.2 var(--d);font-variation-settings:"opsz" 30}
+.rules li small{font:400 13px var(--t);color:var(--fg-3)}
+
+/* переводчик: горизонтальная лента */
+.tr{overflow:clip}
+.tr-pin{height:100svh;display:flex;flex-direction:column;justify-content:center;gap:clamp(24px,4vh,48px)}
+.tr-head{display:flex;justify-content:space-between;align-items:end;gap:40px}
+.tr-head h2{font:400 clamp(34px,4.2vw,64px)/1 var(--d);font-variation-settings:"opsz" 30;letter-spacing:-.02em}
+.tr-head p{color:var(--fg-2);max-width:26em;font-size:16px}
+.tr-track{display:flex;gap:clamp(16px,2vw,32px);padding-left:clamp(20px,4vw,64px);will-change:transform}
+.card{flex:none;width:min(76vw,900px);min-height:min(56vh,520px);border-radius:28px;background:rgba(244,241,247,.045);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:inset 0 0 0 1px var(--line);padding:clamp(24px,3vw,44px);display:grid;grid-template-rows:auto 1fr auto;gap:24px}
+.card .say{font:italic 500 clamp(36px,4.6vw,76px)/1 var(--d);font-variation-settings:"opsz" 30;letter-spacing:-.02em}
+.card .mean{align-self:center}
+.card .mean p{font:300 clamp(26px,3vw,44px)/1.15 var(--d);font-variation-settings:"opsz" 30;color:var(--peach);max-width:16em}
+.card .hear{display:flex;gap:14px;align-items:baseline;color:var(--lilac)}
+.card .hear p{font:italic 400 clamp(20px,2vw,28px)/1.2 var(--d)}
+.card small{display:block;font:400 13px var(--t);color:var(--fg-3);margin-bottom:8px}
+.card.last{background:var(--peach);color:var(--ink);box-shadow:none;grid-template-rows:auto 1fr auto}
+.card.last small{color:var(--ink-2)}
+.card.last .say{font-size:clamp(32px,3.8vw,60px);font-style:normal}
+.card.last p{color:var(--ink-2);font:300 18px/1.5 var(--t);max-width:26em}
+.card.last .btn{justify-self:start;background:var(--ink);color:var(--fg)}
+.card.last .btn:before{background:var(--fg)}
+.card.last .btn:hover{color:var(--ink)}
+
+/* две бегущие строки */
+.voices{padding:clamp(120px,16vh,200px) 0 0}
+.voices .wrap h2{font:400 clamp(40px,5.6vw,88px)/1 var(--d);font-variation-settings:"opsz" 30;letter-spacing:-.02em;max-width:9em}
+.voices .wrap p.l{color:var(--fg-2);max-width:30em;margin-top:20px;font-size:17px}
+.rows{position:relative;margin:clamp(56px,9vh,110px) 0 0;padding:20px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.row{display:flex;white-space:nowrap;overflow:hidden;font:italic 400 clamp(44px,7vw,112px)/1 var(--d);font-variation-settings:"opsz" 30;letter-spacing:-.02em}
+.row .in{display:flex;flex:none;will-change:transform}
+.row span{padding:0 .35em}
+.row span:after{content:"·";color:var(--fg-3);padding-left:.7em}
+.row.her{color:var(--peach)}
+.row.him{color:var(--lilac);margin-top:-.28em;mix-blend-mode:screen}
+.rows .mid{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font:400 13px/1.4 var(--t);letter-spacing:.02em;color:var(--fg);background:var(--bg);padding:10px 16px;border-radius:999px;box-shadow:inset 0 0 0 1px var(--line);white-space:nowrap}
+.voices .expl{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,96px);padding:clamp(72px,10vh,120px) 0 0}
+.voices .expl .q{font:italic 400 clamp(30px,3.4vw,52px)/1.1 var(--d);font-variation-settings:"opsz" 30}
+.voices .expl .q cite{display:block;margin-top:22px;font:400 14px var(--t);font-style:normal;color:var(--fg-3)}
+.voices .expl p{color:var(--fg-2);font-size:18px}
+.voices .expl p+p{margin-top:16px}
+.voices .expl b{font-weight:400;color:var(--fg)}
+
+/* для кого */
+.who{padding:clamp(120px,16vh,200px) 0}
+.who .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,96px);align-items:start}
+.who h2{font:400 clamp(40px,5vw,80px)/1 var(--d);font-variation-settings:"opsz" 30;letter-spacing:-.02em}
+.who .l{color:var(--fg-2);margin-top:22px;max-width:28em;font-size:17px}
+.who ul{list-style:none}
+.who li{padding:22px 0;border-top:1px solid var(--line);font:400 clamp(20px,1.8vw,26px)/1.3 var(--d);font-variation-settings:"opsz" 30;display:grid;grid-template-columns:36px 1fr;gap:12px;align-items:baseline}
+.who li:last-child{border-bottom:1px solid var(--line)}
+.who li i{width:8px;height:8px;border-radius:50%;background:var(--peach);display:block;transform:translateY(-3px)}
+
+/* программа: светлая */
+.program{padding:clamp(100px,14vh,180px) 0}
+.program .head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:clamp(40px,6vh,72px)}
+.program h2{font:400 clamp(56px,9vw,150px)/.9 var(--d);font-variation-settings:"opsz" 30;letter-spacing:-.03em}
+.program .head p{color:var(--ink-2);max-width:26em;font-size:17px;justify-self:end}
+.meet{border-top:1px solid var(--line-d)}
+.meet details{border-bottom:1px solid var(--line-d)}
+.meet summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:clamp(60px,8vw,120px) 1fr auto;gap:20px;align-items:center;padding:clamp(22px,3vh,34px) 0;transition:padding-left .5s cubic-bezier(.2,.8,.2,1)}
+.meet summary:hover{padding-left:16px}
+.meet summary::-webkit-details-marker{display:none}
+.meet .n{font:italic 300 clamp(24px,3vw,40px)/1 var(--d);font-variation-settings:"opsz" 30;color:var(--ink-2)}
+.meet h3{font:400 clamp(34px,5vw,84px)/1 var(--d);font-variation-settings:"opsz" 30;letter-spacing:-.025em}
+.meet .plus{width:46px;height:46px;border-radius:50%;position:relative;box-shadow:inset 0 0 0 1px var(--ink);transition:transform .45s cubic-bezier(.2,.8,.2,1),background .3s;flex:none}
+.meet .plus:before,.meet .plus:after{content:"";position:absolute;left:50%;top:50%;width:16px;height:1.5px;background:var(--ink);transform:translate(-50%,-50%)}
+.meet .plus:after{transform:translate(-50%,-50%) rotate(90deg)}
+.meet details[open] .plus{transform:rotate(135deg);background:var(--peach);box-shadow:none}
+.meet .body{display:grid;grid-template-columns:clamp(60px,8vw,120px) 1.2fr 1fr;gap:20px;padding:0 0 clamp(26px,4vh,44px)}
+.meet .body p{color:var(--ink-2);font-size:18px;max-width:30em}
+.meet .body .cl{font:italic 400 clamp(24px,2.4vw,34px)/1.15 var(--d);font-variation-settings:"opsz" 30;color:var(--ink)}
+.meet .body .cl small{display:block;font:400 13px var(--t);font-style:normal;color:var(--ink-2);margin-bottom:8px}
+:root{interpolate-size:allow-keywords}
+details::details-content{transition:height .5s cubic-bezier(.2,.8,.2,1),content-visibility .5s allow-discrete;height:0;overflow:clip}
+details[open]::details-content{height:auto}
+
+/* голова и тело */
+.ht{display:grid;grid-template-columns:1fr 1fr;min-height:100svh}
+.ht>div{padding:clamp(72px,10vh,140px) clamp(20px,4vw,64px);display:flex;flex-direction:column;justify-content:center}
+.ht .head{background:var(--paper);color:var(--ink)}
+.ht .body{background:var(--bg-2)}
+.ht h3{font:italic 400 clamp(64px,9vw,150px)/.9 var(--d);font-variation-settings:"opsz" 30;letter-spacing:-.03em;margin-bottom:28px}
+.ht p{font-size:18px;max-width:30em}
+.ht .head p{color:var(--ink-2)}
+.ht .body p{color:var(--fg-2)}
+.ht p+p{margin-top:14px}
+.ht .num{display:flex;gap:36px;margin-top:40px}
+.ht .num b{display:block;font:italic 400 44px/1 var(--d);margin-bottom:4px}
+.ht .num div{font-size:14px}
+.ht .head .num div{color:var(--ink-2)}.ht .head .num b{color:var(--ink)}
+
+/* договор: старое зачёркивается, новое пишется */
+.ctr{padding:clamp(120px,16vh,200px) 0}
+.ctr .head{margin-bottom:clamp(40px,6vh,80px);display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end}
+.ctr h2{font:400 clamp(40px,5.6vw,88px)/1 var(--d);font-variation-settings:"opsz" 30;letter-spacing:-.02em}
+.ctr .head p{color:var(--fg-2);max-width:26em;font-size:17px;justify-self:end}
+.ctr .doc{border-top:1px solid var(--line)}
+.ctr .c{display:grid;grid-template-columns:140px 1fr;gap:24px;padding:clamp(24px,4vh,40px) 0;border-bottom:1px solid var(--line);align-items:baseline}
+.ctr .c small{font:400 13px var(--t);color:var(--fg-3)}
+.ctr .old{position:relative;display:inline;font:300 clamp(22px,2.6vw,38px)/1.25 var(--d);font-variation-settings:"opsz" 30;color:var(--fg-2)}
+.ctr .old i{position:absolute;left:0;top:52%;height:2px;width:100%;background:var(--peach);transform:scaleX(0);transform-origin:left}
+.ctr .new{display:block;margin-top:14px;font:400 clamp(24px,2.8vw,42px)/1.2 var(--d);font-variation-settings:"opsz" 30;color:var(--fg);opacity:0;transform:translateY(14px)}
+.ctr .sig{display:flex;justify-content:space-between;padding-top:24px;font-size:13px;color:var(--fg-3)}
+.ctr .sig b{font:italic 400 34px/1 var(--d);color:var(--peach);opacity:0}
+.res{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:clamp(56px,8vh,96px)}
+.res h3{font:italic 400 clamp(26px,2.4vw,34px)/1.1 var(--d);font-variation-settings:"opsz" 30;margin-bottom:10px}
+.res p{color:var(--fg-2);font-size:17px}
+
+/* Анастасия */
+.about{padding:clamp(100px,14vh,180px) 0}
+.about .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(32px,6vw,96px);align-items:center}
+.ph{position:relative;aspect-ratio:3/4;border-radius:300px 300px 24px 24px;overflow:hidden;background:var(--bg-2)}
+.ph img{position:absolute;inset:-12% 0;width:100%;height:124%;object-fit:cover;filter:grayscale(1) contrast(1.08) brightness(.92)}
+.ph:after{content:"";position:absolute;inset:0;background:linear-gradient(160deg,rgba(255,176,138,.55),rgba(157,140,255,.5));mix-blend-mode:multiply}
+.ph .cap{position:absolute;left:20px;bottom:18px;color:var(--fg);z-index:1}
+.about h2{font:400 clamp(40px,5vw,80px)/1 var(--d);font-variation-settings:"opsz" 30;letter-spacing:-.02em;margin-bottom:26px}
+.about .q{font:italic 400 clamp(24px,2.3vw,32px)/1.2 var(--d);font-variation-settings:"opsz" 30;margin-bottom:26px}
+.about p{color:var(--fg-2);font-size:18px}
+.about p+p{margin-top:14px}
+.creds{list-style:none;margin-top:36px;display:grid;grid-template-columns:1fr 1fr;gap:20px 32px}
+.creds li{border-top:1px solid var(--line);padding-top:12px;font-size:15px;color:var(--fg-3)}
+.creds b{display:block;color:var(--fg);font-weight:400;font-size:17px;margin-bottom:2px}
+
+/* условия */
+.terms{padding:0 0 clamp(100px,14vh,180px)}
+.terms .box{display:grid;grid-template-columns:1fr 1fr;border-radius:32px;overflow:hidden;box-shadow:inset 0 0 0 1px var(--line);background:rgba(244,241,247,.03)}
+.terms dl{padding:clamp(28px,4vw,56px);display:grid;grid-template-columns:auto 1fr;gap:16px 32px;font-size:17px;align-content:start}
+.terms dt{color:var(--fg-3)}
+.terms h2{grid-column:1/-1;font:400 clamp(36px,4vw,60px)/1 var(--d);font-variation-settings:"opsz" 30;margin-bottom:12px}
+.price{padding:clamp(28px,4vw,56px);background:var(--peach);color:var(--ink);display:flex;flex-direction:column;justify-content:center}
+.price .was{font-size:16px;color:var(--ink-2);text-decoration:line-through}
+.price .now{font:400 clamp(72px,8vw,128px)/.95 var(--d);font-variation-settings:"opsz" 30;letter-spacing:-.03em;margin:10px 0 8px}
+.price .till{font-size:16px}
+.price .btn{margin-top:30px;align-self:flex-start;background:var(--ink);color:var(--fg)}
+.price .btn:before{background:var(--fg)}
+.price .btn:hover{color:var(--ink)}
+.price small{margin-top:18px;font-size:13px;color:var(--ink-2);max-width:28em}
+
+/* путь */
+.path{padding:0 0 clamp(100px,14vh,180px)}
+.path h2{font:400 clamp(40px,5vw,80px)/1 var(--d);font-variation-settings:"opsz" 30;letter-spacing:-.02em;margin-bottom:clamp(36px,5vh,64px)}
+.steps{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);box-shadow:inset 0 0 0 1px var(--line);border-radius:24px;overflow:hidden}
+.steps li{background:var(--bg);padding:28px 26px 32px;min-height:260px;display:flex;flex-direction:column;transition:background .4s}
+.steps li:hover{background:var(--bg-2)}
+.steps li i{font:italic 300 40px/1 var(--d);color:var(--fg-3);margin-bottom:auto}
+.steps h3{font:400 clamp(24px,2vw,30px)/1.1 var(--d);font-variation-settings:"opsz" 30;margin:28px 0 10px}
+.steps p{color:var(--fg-2);font-size:15.5px}
+.steps .when{margin-top:14px;font-size:14px;color:var(--peach)}
+.steps li.last{background:var(--fg);color:var(--ink)}
+.steps li.last:hover{background:var(--fg)}
+.steps li.last p{color:var(--ink-2)}.steps li.last i{color:var(--ink-2)}.steps li.last .when{color:var(--ink)}
+
+/* вопросы */
+.faq{padding:0 0 clamp(100px,14vh,180px)}
+.faq .wrap{display:grid;grid-template-columns:1fr 1.4fr;gap:clamp(32px,6vw,96px)}
+.faq h2{font:400 clamp(40px,5vw,80px)/1 var(--d);font-variation-settings:"opsz" 30;letter-spacing:-.02em}
+.faq details{border-top:1px solid var(--line)}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:24px 56px 24px 0;font:400 clamp(22px,2vw,28px)/1.2 var(--d);font-variation-settings:"opsz" 30;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:after{content:"";position:absolute;right:6px;top:50%;width:11px;height:11px;border-right:1.5px solid var(--fg);border-bottom:1.5px solid var(--fg);transform:translateY(-70%) rotate(45deg);transition:transform .3s}
+.faq details[open] summary:after{transform:translateY(-30%) rotate(-135deg)}
+.faq details p{padding:0 0 26px;color:var(--fg-2);max-width:36em}
+
+/* финал: снова шейдер */
+.final{min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 20px}
+.final h2{font:italic 700 clamp(56px,11vw,190px)/.9 var(--d);font-variation-settings:"opsz" 30;letter-spacing:-.035em;mix-blend-mode:difference;color:#fff}
+.final p{margin:28px 0 36px;color:var(--fg-2);font-size:18px}
+footer{position:relative;z-index:1;padding:0 0 36px;font-size:13px;color:var(--fg-3)}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:24px}
+
+/* появление: только при движении */
+.motion .rv{opacity:0;transform:translateY(28px)}
+
+/* адаптив */
+@media (max-width:1000px){
+  .hero .sub,.who .wrap,.program .head,.ht,.ctr .head,.about .wrap,.terms .box,.faq .wrap,.voices .expl{grid-template-columns:1fr}
+  .hero .meta{justify-content:flex-start}
+  .program .head p,.ctr .head p{justify-self:start}
+  .steps{grid-template-columns:1fr 1fr}
+  .res{grid-template-columns:1fr;gap:26px}
+  .hint{display:none}
+  .ph{max-width:420px}
+}
+@media (max-width:700px){
+  body{font-size:17px}
+  .top .wrap{height:64px}
+  .hero{padding-bottom:28px}
+  .hero .title{font-size:clamp(64px,19vw,110px)}
+  .hero .title .ln:last-child{padding-left:.25em}
+  .rules li{grid-template-columns:1fr;gap:4px}
+  .tr-pin{height:auto;padding:84px 0 20px}
+  .tr-head{flex-direction:column;align-items:flex-start;gap:12px}
+  .tr-track{flex-direction:column;padding:0 20px;gap:14px}
+  .card{width:100%;min-height:0;padding:24px 22px;gap:18px;border-radius:22px}
+  .rows{padding:14px 0 0}
+  .row.him{margin-top:-.12em}
+  .rows .mid{position:static;transform:none;display:block;width:max-content;max-width:90vw;white-space:normal;text-align:center;margin:18px auto 0;font-size:12px}
+  .meet summary{grid-template-columns:40px 1fr auto;gap:12px}
+  .meet .body{grid-template-columns:1fr;padding-left:52px}
+  .ht>div{min-height:70svh}
+  .ctr .c{grid-template-columns:1fr;gap:8px}
+  .creds{grid-template-columns:1fr}
+  .terms dl{grid-template-columns:1fr;gap:2px}
+  .terms dd{margin-bottom:12px}
+  .steps{grid-template-columns:1fr}
+  .steps li{min-height:0}
+  .steps li i{margin-bottom:12px}
+  .steps h3{margin-top:0}
+  .final{min-height:80svh}
+}
+</style>
+</head>
+<body>
+<canvas id="gl" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+<div class="cur" aria-hidden="true"></div><div class="cur-r" aria-hidden="true"></div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="name" href="#"><span>психолог, пары и отношения</span>Анастасия Веробей</a>
+    <a class="go" href="#terms"><i></i>Записаться</a>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="hint"><i></i>листайте</div>
+  <div class="wrap">
+    <h1 class="title"><span class="ln"><span>Негласный</span></span><span class="ln"><span>договор</span></span></h1>
+    <div class="sub">
+      <div>
+        <p class="lead rv">В каждой паре есть правила, которые никто не произносил вслух. <b>Онлайн-группа для женщин, которые устали говорить одно, иметь в виду другое и слышать в ответ третье.</b></p>
+        <div class="cta rv"><a class="btn" href="#terms">Хочу в группу</a><a class="btn ghost" href="#program">Программа</a></div>
+      </div>
+      <div class="meta rv">
+        <div><b>6</b>встреч онлайн</div>
+        <div><b>14.01</b>старт первого потока</div>
+        <div><b>10</b>участниц, не больше</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="rules solid">
+  <div class="wrap">
+    <p class="big d" id="manifest">Вы его не подписывали. Но соблюдаете каждый день: кто первой идёт мириться, кто решает про деньги, о чём лучше промолчать. Пункты не записаны, их просто все знают. <em>За шесть встреч мы прочитаем этот договор вслух и перепишем его.</em></p>
+    <ol>
+      <li class="rv"><small>после ссоры</small>Первой мириться иду я.</li>
+      <li class="rv"><small>деньги</small>Говорим о них, только когда их не хватает.</li>
+      <li class="rv"><small>быт</small>«Я сама» значит «догадайся, что надо помочь».</li>
+      <li class="rv"><small>близость</small>Об этом молчим, чтобы никого не обидеть.</li>
+      <li class="rv"><small>родня</small>Его мама — тема закрыта.</li>
+    </ol>
+  </div>
+</section>
+
+<section class="tr solid" id="translate">
+  <div class="tr-pin">
+    <div class="wrap tr-head">
+      <h2>Вы говорите одно.<br>Он слышит третье.</h2>
+      <p>Между ними теряется то, что вы имели в виду. Так ссора и идёт по кругу: каждый отвечает не на то, что ему сказали.</p>
+    </div>
+    <div class="tr-track" id="track">
+      <article class="card"><div><small>вы говорите</small><div class="say">«Делай как хочешь»</div></div><div class="mean"><small>имеете в виду</small><p>спроси меня, мне это важно</p></div><div class="hear"><small>он слышит</small><p>свободен</p></div></article>
+      <article class="card"><div><small>вы говорите</small><div class="say">«Всё нормально»</div></div><div class="mean"><small>имеете в виду</small><p>всё не нормально, но я устала объяснять</p></div><div class="hear"><small>он слышит</small><p>всё нормально</p></div></article>
+      <article class="card"><div><small>вы говорите</small><div class="say">«Ты опять задержался»</div></div><div class="mean"><small>имеете в виду</small><p>мне страшно, что я тебе не нужна</p></div><div class="hear"><small>он слышит</small><p>опять контроль</p></div></article>
+      <article class="card"><div><small>вы говорите</small><div class="say">«Я сама»</div></div><div class="mean"><small>имеете в виду</small><p>помоги, но так, чтобы мне не пришлось просить</p></div><div class="hear"><small>он слышит</small><p>справится</p></div></article>
+      <article class="card"><div><small>вы говорите</small><div class="say">«Ты меня не слышишь!»</div></div><div class="mean"><small>имеете в виду</small><p>мне больно, и я не знаю, как сказать об этом спокойно</p></div><div class="hear"><small>он слышит</small><p>опять она кричит</p></div></article>
+      <article class="card last"><div><small>в группе</small><div class="say">Учимся говорить то, что имеем в виду. Так, чтобы доходило.</div></div><p>Разбираем настоящие ссоры участниц и ищем фразу, которую можно сказать вместо крика или молчания.</p><a class="btn" href="#program">Как проходят встречи</a></article>
+    </div>
+  </div>
+</section>
+
+<section class="voices solid">
+  <div class="wrap">
+    <h2 class="rv">Почему он не слышит</h2>
+    <p class="l rv">В ссоре часто говорят не двое взрослых. Говорят двое детей, которых когда-то не услышали. И каждый кричит не партнёру, а кому-то из своего детства.</p>
+  </div>
+  <div class="rows" aria-hidden="true">
+    <div class="row her"><div class="in" data-dir="-1"><span>она кричит, чтобы наконец услышали</span><span>мне страшно, что я не нужна</span><span>почему ты молчишь</span><span>ты никогда не слушаешь</span></div></div>
+    <div class="row him"><div class="in" data-dir="1"><span>он уходит, чтобы его не контролировали</span><span>опять я виноват</span><span>дай мне просто побыть одному</span><span>что я опять не так сделал</span></div></div>
+    <div class="mid">две старые боли совпадают, как ключ с замком</div>
+  </div>
+  <div class="wrap expl">
+    <div class="q rv">«Он не слышит, как вы кричите. Потому что вы кричите, а не говорите, что вам больно».<cite>Анастасия Веробей</cite></div>
+    <div class="rv">
+      <p>С ГАИ на аварии так же: вызывает чаще тот, кто виноват, и уверен на сто процентов, что не он.</p>
+      <p>Поэтому мы не ищем виноватого. <b>Мы смотрим, как устроены вы и как устроен он, и ищем слова, которые до него дойдут.</b></p>
+    </div>
+  </div>
+</section>
+
+<section class="who solid">
+  <div class="wrap">
+    <div class="rv">
+      <h2>Группа для вас, если</h2>
+      <p class="l">Пары не нужны. Приходите одна: договор держится на двоих, и когда меняется одна сторона, меняется и вторая.</p>
+    </div>
+    <ul>
+      <li class="rv"><i></i>вы вместе несколько лет, и снаружи всё в порядке</li>
+      <li class="rv"><i></i>ссоры идут по одному сценарию, вы знаете его наизусть</li>
+      <li class="rv"><i></i>после ссоры дома висит молчанка на день, на три, на неделю</li>
+      <li class="rv"><i></i>о деньгах, близости или его родне проще промолчать, чем начать</li>
+      <li class="rv"><i></i>вы устали не от него, а от того, как вы воюете</li>
+    </ul>
+  </div>
+</section>
+
+<section class="program light" id="program">
+  <div class="wrap">
+    <div class="head">
+      <h2 class="rv">Шесть встреч</h2>
+      <p class="rv">Раз в неделю по два часа. Каждая встреча про одну тему, о которой в паре молчат, и на каждой вы пишете один пункт нового договора.</p>
+    </div>
+    <div class="meet rv">
+      <details open><summary><span class="n">1</span><h3>Молчанка после ссоры</h3><span class="plus"></span></summary>
+        <div class="body"><span></span><p>Кто первым идёт мириться и сколько это стоит. Разбираем ваш сценарий ссоры от первой фразы до хлопнувшей двери.</p><p class="cl"><small>пункт договора</small>Как мы миримся</p></div></details>
+      <details><summary><span class="n">2</span><h3>Деньги</h3><span class="plus"></span></summary>
+        <div class="body"><span></span><p>Кто решает, кто просит и что в семье считается «моим». Почему разговор о деньгах почти всегда про что-то другое.</p><p class="cl"><small>пункт договора</small>Как мы решаем про деньги</p></div></details>
+      <details><summary><span class="n">3</span><h3>Быт</h3><span class="plus"></span></summary>
+        <div class="body"><span></span><p>Невидимая работа. Кто в доме «помогает», а кто за всё отвечает и держит в голове.</p><p class="cl"><small>пункт договора</small>Кто за что отвечает</p></div></details>
+      <details><summary><span class="n">4</span><h3>Близость</h3><span class="plus"></span></summary>
+        <div class="body"><span></span><p>О чём молчат, чтобы не обидеть. Как просить о близости и как отказывать, чтобы это не стало войной.</p><p class="cl"><small>пункт договора</small>Как мы говорим о близости</p></div></details>
+      <details><summary><span class="n">5</span><h3>Дети</h3><span class="plus"></span></summary>
+        <div class="body"><span></span><p>Каким родителем каждый из вас обещал себе быть. Как остаться парой, когда вас больше, чем двое.</p><p class="cl"><small>пункт договора</small>Мы родители и пара</p></div></details>
+      <details><summary><span class="n">6</span><h3>Родня</h3><span class="plus"></span></summary>
+        <div class="body"><span></span><p>Его мама, ваша мама, праздники и чужие советы. Где граница вашей семьи. Сводим все пункты в один договор.</p><p class="cl"><small>пункт договора</small>Граница нашей семьи</p></div></details>
+    </div>
+  </div>
+</section>
+
+<section class="ht">
+  <div class="head">
+    <h3 class="rv">Голова</h3>
+    <p class="rv">Разбираем настоящие ссоры участниц: что сказала, что имела в виду, что он услышал и чем ответил. Видим, где сценарий каждый раз ломается.</p>
+    <p class="rv">Ищем фразу, которую можно сказать вместо крика или молчания. Домой вы уносите один разговор, который стоит провести на этой неделе.</p>
+    <div class="num rv"><div><b>20%</b>теория</div><div><b>60%</b>разборы и практика</div><div><b>20%</b>ваши вопросы</div></div>
+  </div>
+  <div class="body">
+    <h3 class="rv">Тело</h3>
+    <p class="rv">Я танцую аргентинское танго. В нём не договоришься словами: только телом решается, кто ведёт, кто следует, где пауза и где граница.</p>
+    <p class="rv">Короткие практики из танго, которые можно сделать перед экраном: на опору, на «нет» и на шаг навстречу. Чтобы новое правило было не только в голове.</p>
+  </div>
+</section>
+
+<section class="ctr solid" id="contract">
+  <div class="wrap">
+    <div class="head">
+      <h2 class="rv">Что останется после группы</h2>
+      <p class="rv">Ваш договор на одной странице. Не чтобы повесить на холодильник, а чтобы было с чем прийти к мужу и с чего начать разговор.</p>
+    </div>
+    <div class="doc" id="doc">
+      <div class="c"><small>обиды</small><div><span class="old">Если я обиделась, я молчу, пока он сам не догадается.<i></i></span><span class="new">Если я обиделась, я говорю об этом в тот же вечер. Не криком, а словами: «мне больно, потому что…»</span></div></div>
+      <div class="c"><small>деньги</small><div><span class="old">Про деньги говорим, только когда их не хватает.<i></i></span><span class="new">Раз в месяц садимся и смотрим наши деньги, даже если всё хорошо.</span></div></div>
+      <div class="c"><small>родня</small><div><span class="old">Его мама — тема закрыта.<i></i></span><span class="new">Про праздники с роднёй решаем вдвоём, до звонка маме.</span></div></div>
+      <div class="sig"><span>подпись</span><b>А. В.</b></div>
+    </div>
+    <div class="res">
+      <div class="rv"><h3>Свой сценарий ссоры</h3><p>Вы будете видеть его с первой фразы и сможете сойти с него раньше, чем хлопнет дверь.</p></div>
+      <div class="rv"><h3>Трудный разговор</h3><p>Как сказать о боли так, чтобы вас услышали, а не начали защищаться.</p></div>
+      <div class="rv"><h3>Новый договор</h3><p>Шесть пунктов о деньгах, быте, близости, детях, родне и о том, как вы миритесь.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="about solid" id="about">
+  <div class="wrap">
+    <figure class="ph rv"><img src="img/anastasia.jpg" alt="Анастасия Веробей" width="671" height="805" loading="lazy" id="portrait"><figcaption class="cap">Анастасия Веробей, психолог</figcaption></figure>
+    <div class="rv">
+      <h2>Кто ведёт группу</h2>
+      <p class="q">«Когда приходят со словами „он меня не слышит“ и „она всё время недовольна“, мы не ищем виноватого».</p>
+      <p>Я работаю с парами и с женщинами, которые устали воевать в отношениях. Почти все консультации веду онлайн.</p>
+      <p>Много лет я работала в финансах, где всё держится на логике и ясном результате. Потом погружалась на 50 метров, поднималась по отвесной скале и училась слышать партнёра в танго. Поэтому не верю, что отношения чинятся только «в голове» или только «в чувствах».</p>
+      <ul class="creds">
+        <li><b>Психолог</b>психолого-педагогическое образование, университет им. Витте</li>
+        <li><b>Онкопсихолог</b>специализация, 512 часов</li>
+        <li><b>Нейрофизиология</b>курсы МГУ им. Ломоносова, 2025–2026</li>
+        <li><b>На b17.ru</b>87 публикаций, 49 открытых консультаций, 19 отзывов</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="terms solid" id="terms">
+  <div class="wrap">
+    <div class="box rv">
+      <dl>
+        <h2>Первый поток</h2>
+        <dt>Старт</dt><dd>четверг, 14 января 2027</dd>
+        <dt>Встречи</dt><dd>6 встреч по 2 часа, по четвергам в 19:00 по Москве</dd>
+        <dt>Где</dt><dd>онлайн, ссылка приходит перед встречей</dd>
+        <dt>Группа</dt><dd>до 10 женщин, приходите одна</dd>
+        <dt>Между встречами</dt><dd>закрытый чат группы, я отвечаю на вопросы и смотрю ваши домашние разговоры</dd>
+      </dl>
+      <div class="price">
+        <div class="was">14 900 ₽</div>
+        <div class="now">11 900 ₽</div>
+        <div class="till">при записи до 25 декабря</div>
+        <a class="btn" href="https://t.me/ti_persona">Записаться в группу</a>
+        <small>Места бронируются по порядку оплаты. Если группа не наберётся, верну деньги полностью.</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="path solid" id="path">
+  <div class="wrap">
+    <h2 class="rv">Можно начать с малого</h2>
+    <ol class="steps rv">
+      <li><i>1</i><h3>Чек-лист</h3><p>«10 пунктов, которые вы подписали молча». Отметьте, какие есть у вас дома.</p><span class="when">бесплатно</span></li>
+      <li><i>2</i><h3>Эфир</h3><p>«Почему он не слышит, когда вы кричите». Разберу ссоры, которые пришлют участницы.</p><span class="when">17 декабря, 19:00 МСК</span></li>
+      <li><i>3</i><h3>Знакомство</h3><p>20 минут со мной: подходит ли вам группа или лучше начать с личной работы.</p><span class="when">бесплатно</span></li>
+      <li class="last"><i>4</i><h3>Группа</h3><p>Шесть встреч и ваш новый договор на одной странице.</p><span class="when">старт 14 января</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="faq solid">
+  <div class="wrap">
+    <h2 class="rv">Вопросы</h2>
+    <div class="rv">
+      <details><summary>Муж не пойдёт к психологу. Есть ли смысл идти одной?</summary><p>Есть. Договор держится на двоих: когда одна сторона перестаёт соблюдать старые пункты, второй тоже приходится меняться. Мужа звать не нужно. Если потом захотите прийти парой, я работаю и с парами.</p></details>
+      <details><summary>Мы на грани развода. Группа будет уговаривать сохранить брак?</summary><p>Нет. Задача не в том, чтобы остаться или уйти, а в том, чтобы перестать воевать и решать уже спокойно, на своих условиях.</p></details>
+      <details><summary>Придётся рассказывать о себе при всех?</summary><p>Ровно столько, сколько захотите. Можно весь первый вечер просто слушать. Всё, что звучит в группе, остаётся в группе: об этом договариваемся в самом начале.</p></details>
+      <details><summary>Это терапия?</summary><p>Это группа с практикой, а не лечение. Если всплывёт что-то, с чем лучше работать один на один, я скажу об этом и предложу личную консультацию.</p></details>
+      <details><summary>Что если пропущу встречу?</summary><p>Записи встреч я не веду, чтобы участницы могли говорить свободно. Пришлю конспект и упражнение, а вопросы разберём в чате.</p></details>
+      <details><summary>Как оплатить?</summary><p>Напишите мне, и я пришлю удобный способ оплаты.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <h2>Скажите<br>это вслух</h2>
+  <p>14 января, шесть встреч, до десяти женщин.</p>
+  <a class="btn" href="https://t.me/ti_persona">Хочу в группу</a>
+</section>
+
+</main>
+<footer>
+  <div class="wrap"><span>Анастасия Веробей, психолог, онлайн</span><span>Групповая работа не заменяет медицинскую помощь</span></div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js" integrity="sha384-tKsJDT6PlUI0pSBt9/sBKJluKgA19/a6mBrDsZaXotLB4ZYfMGM6xt6/WgGpYhTm" crossorigin="anonymous"></script>
+<script>
+(() => {
+  /* движение: уважаем системное «Уменьшить движение», ?motion=1 включает принудительно и запоминает */
+  const q = new URLSearchParams(location.search);
+  let forced = false;
+  try {
+    if (q.get('motion') === '1') localStorage.setItem('motion', '1');
+    if (q.get('motion') === '0') localStorage.removeItem('motion');
+    forced = localStorage.getItem('motion') === '1';
+  } catch (e) { forced = q.get('motion') === '1'; }
+  const motion = forced || !matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fine = matchMedia('(pointer:fine)').matches;
+  if (motion) document.documentElement.classList.add('motion');
+
+  /* ---------- шейдер: две краски в воде ---------- */
+  const cv = document.getElementById('gl');
+  const gl = cv.getContext('webgl', { antialias: false, alpha: false, powerPreference: 'low-power' });
+  const mouse = { x: .5, y: .5, tx: .5, ty: .5 };
+  if (gl) {
+    const vs = 'attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}';
+    const fs = `precision highp float;uniform vec2 R;uniform float T;uniform vec2 M;
+    float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
+    float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1,0)),f.x),mix(h(i+vec2(0,1)),h(i+vec2(1,1)),f.x),f.y);}
+    float fbm(vec2 p){float v=0.,a=.5;mat2 r=mat2(.8,.6,-.6,.8);for(int i=0;i<5;i++){v+=a*n(p);p=r*p*2.03+7.;a*=.5;}return v;}
+    void main(){
+      vec2 uv=(gl_FragCoord.xy-.5*R)/R.y; float t=T*.055;
+      vec2 m=(M-.5)*vec2(R.x/R.y,1.);
+      vec2 p=uv*1.35;
+      vec2 q=vec2(fbm(p+t),fbm(p+vec2(5.2,1.3)-t*.8));
+      vec2 r=vec2(fbm(p+3.6*q+vec2(1.7,9.2)+t*.4),fbm(p+3.6*q+vec2(8.3,2.8)-t*.3));
+      float f=fbm(p+3.2*r);
+      vec2 cw=vec2(-.42,.12)+m*.22, cc=vec2(.42,-.08)-m*.22;
+      float dw=length(uv-cw+(r-.5)*.5), dc=length(uv-cc+(q-.5)*.5);
+      float warm=smoothstep(.95,.05,dw)*(f*1.5);
+      float cool=smoothstep(.95,.05,dc)*(r.x*1.5);
+      vec3 col=vec3(.027,.024,.047);
+      col+=vec3(1.,.69,.54)*pow(warm,1.6)*1.25;
+      col+=vec3(.62,.55,1.)*pow(cool,1.6)*1.15;
+      col+=vec3(1.,.5,.6)*warm*cool*.9;
+      col*=1.-.35*dot(uv,uv);
+      col+=(h(gl_FragCoord.xy+fract(T))-.5)*.025;
+      gl_FragColor=vec4(col,1.);
+    }`;
+    const sh = (t, s) => { const o = gl.createShader(t); gl.shaderSource(o, s); gl.compileShader(o); return o; };
+    const pr = gl.createProgram(); gl.attachShader(pr, sh(gl.VERTEX_SHADER, vs)); gl.attachShader(pr, sh(gl.FRAGMENT_SHADER, fs)); gl.linkProgram(pr); gl.useProgram(pr);
+    const buf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buf); gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1,1,-1,-1,1,1,1]), gl.STATIC_DRAW);
+    const loc = gl.getAttribLocation(pr, 'p'); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+    const uR = gl.getUniformLocation(pr, 'R'), uT = gl.getUniformLocation(pr, 'T'), uM = gl.getUniformLocation(pr, 'M');
+    const dpr = Math.min(devicePixelRatio || 1, 1.25);
+    const size = () => { cv.width = innerWidth * dpr; cv.height = innerHeight * dpr; gl.viewport(0, 0, cv.width, cv.height); gl.uniform2f(uR, cv.width, cv.height); };
+    addEventListener('resize', size); size();
+    addEventListener('pointermove', e => { mouse.tx = e.clientX / innerWidth; mouse.ty = 1 - e.clientY / innerHeight; }, { passive: true });
+    const t0 = performance.now();
+    const heroEl = document.querySelector('.hero'), finalEl = document.querySelector('.final');
+    const onScreen = el => { const r = el.getBoundingClientRect(); return r.bottom > 0 && r.top < innerHeight; };
+    const frame = () => {
+      if (!document.hidden && (onScreen(heroEl) || onScreen(finalEl))) {
+        mouse.x += (mouse.tx - mouse.x) * .04; mouse.y += (mouse.ty - mouse.y) * .04;
+        gl.uniform1f(uT, motion ? (performance.now() - t0) / 1000 : 40);
+        gl.uniform2f(uM, mouse.x, mouse.y);
+        gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+      }
+      if (motion) requestAnimationFrame(frame);
+    };
+    frame();
+    if (!motion) addEventListener('scroll', () => { if (onScreen(finalEl)) { gl.uniform1f(uT, 40); gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4); } }, { passive: true, once: true });
+  }
+
+  /* ---------- курсор и магнитные кнопки ---------- */
+  if (motion && fine && window.gsap) {
+    const c = document.querySelector('.cur'), r = document.querySelector('.cur-r');
+    let x = innerWidth / 2, y = innerHeight / 2, rx = x, ry = y;
+    addEventListener('pointermove', e => { x = e.clientX; y = e.clientY; c.style.transform = `translate(${x}px,${y}px) translate(-50%,-50%)`; }, { passive: true });
+    const tick = () => { rx += (x - rx) * .16; ry += (y - ry) * .16; r.style.transform = `translate(${rx}px,${ry}px) translate(-50%,-50%)`; requestAnimationFrame(tick); }; tick();
+    document.querySelectorAll('a,button,summary').forEach(el => { el.addEventListener('pointerenter', () => r.classList.add('on')); el.addEventListener('pointerleave', () => r.classList.remove('on')); });
+    document.querySelectorAll('.btn').forEach(b => {
+      b.addEventListener('pointermove', e => { const k = b.getBoundingClientRect(); gsap.to(b, { x: (e.clientX - k.left - k.width / 2) * .25, y: (e.clientY - k.top - k.height / 2) * .35, duration: .4 }); });
+      b.addEventListener('pointerleave', () => gsap.to(b, { x: 0, y: 0, duration: .6, ease: 'elastic.out(1,.5)' }));
+    });
+  }
+
+  const showAll = () => {
+    document.querySelectorAll('.rv, #doc .new').forEach(el => { el.style.opacity = 1; el.style.transform = 'none'; });
+    document.querySelectorAll('#doc .old i').forEach(el => el.style.transform = 'scaleX(1)');
+    document.querySelector('#doc .sig b').style.opacity = 1;
+    document.querySelectorAll('#manifest .w').forEach(el => el.classList.add('on'));
+  };
+  if (!motion || !window.gsap || !window.ScrollTrigger) { showAll(); return; }
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* плавный скролл */
+  let lenis = null;
+  if (window.Lenis && fine) {
+    lenis = new Lenis({ lerp: .09 });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(t => lenis.raf(t * 1000));
+    gsap.ticker.lagSmoothing(0);
+    document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => { const id = a.getAttribute('href'); if (id.length > 1 && document.querySelector(id)) { e.preventDefault(); lenis.scrollTo(id, { offset: -40 }); } }));
+  }
+
+  /* загрузка: заголовок поднимается строками, остальное следом */
+  gsap.timeline({ defaults: { ease: 'power4.out' } })
+    .from('.hero .title .ln span', { yPercent: 110, duration: 1.4, stagger: .12 }, .15)
+    .to('.hero .rv', { opacity: 1, y: 0, duration: 1.1, stagger: .12 }, .8);
+
+  /* появление блоков по скроллу */
+  document.querySelectorAll('.rv').forEach(el => {
+    if (el.closest('.hero')) return;
+    gsap.to(el, { opacity: 1, y: 0, duration: 1.1, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 88%' } });
+  });
+
+  /* манифест: слова проявляются по мере чтения */
+  const man = document.getElementById('manifest');
+  const wrapWords = html => html.split(' ').map(w => w ? `<span class="w">${w}</span>` : '').join(' ');
+  man.innerHTML = man.innerHTML.split(/(<em>.*?<\/em>)/).map(part => part.startsWith('<em>') ? '<em>' + wrapWords(part.slice(4, -5)) + '</em>' : wrapWords(part)).join('');
+  const words = man.querySelectorAll('.w');
+  ScrollTrigger.create({ trigger: man, start: 'top 80%', end: 'bottom 45%', scrub: true, onUpdate: s => { const k = Math.floor(s.progress * words.length); words.forEach((w, i) => w.classList.toggle('on', i <= k)); } });
+
+  /* переводчик: лента едет вбок, пока секция закреплена */
+  ScrollTrigger.matchMedia({
+    '(min-width: 701px)': () => {
+      const track = document.getElementById('track');
+      const dist = () => track.scrollWidth - innerWidth + parseFloat(getComputedStyle(track).paddingLeft);
+      gsap.to(track, { x: () => -dist(), ease: 'none', scrollTrigger: { trigger: '.tr', start: 'top top', end: () => '+=' + dist(), pin: '.tr-pin', scrub: .6, invalidateOnRefresh: true, anticipatePin: 1 } });
+    }
+  });
+
+  /* две бегущие строки навстречу, скорость зависит от скролла */
+  const rows = document.querySelectorAll('.row .in');
+  rows.forEach(r => { r.innerHTML += r.innerHTML + r.innerHTML; });
+  let vel = 0;
+  ScrollTrigger.create({ onUpdate: s => { vel = s.getVelocity() / 1500; } });
+  const pos = [0, 0];
+  gsap.ticker.add(() => {
+    rows.forEach((r, i) => {
+      const dir = +r.dataset.dir, w = r.scrollWidth / 3;
+      pos[i] += dir * (.6 + Math.min(Math.abs(vel), 6));
+      if (pos[i] < -w) pos[i] += w; if (pos[i] > 0) pos[i] -= w;
+      r.style.transform = `translate3d(${pos[i]}px,0,0)`;
+    });
+    vel *= .92;
+  });
+
+  /* договор: старое зачёркивается, новое пишется */
+  const cs = document.querySelectorAll('#doc .c');
+  const ctl = gsap.timeline({ scrollTrigger: { trigger: '#doc', start: 'top 70%', end: 'bottom 45%', scrub: .5 } });
+  cs.forEach((c, i) => {
+    ctl.to(c.querySelector('.old i'), { scaleX: 1, duration: .5, ease: 'power2.inOut' }, i * .9)
+       .to(c.querySelector('.new'), { opacity: 1, y: 0, duration: .5, ease: 'power3.out' }, i * .9 + .35);
+  });
+  ctl.to('#doc .sig b', { opacity: 1, duration: .4 }, '>-.1');
+
+  /* портрет: параллакс */
+  gsap.to('#portrait', { yPercent: -8, ease: 'none', scrollTrigger: { trigger: '.ph', start: 'top bottom', end: 'bottom top', scrub: true } });
+
+  /* шапка прячется при скролле вниз */
+  const top = document.querySelector('.top');
+  ScrollTrigger.create({ start: 80, onUpdate: s => gsap.to(top, { yPercent: s.direction === 1 ? -100 : 0, duration: .5, overwrite: true }) });
+
+  addEventListener('load', () => ScrollTrigger.refresh());
+})();
+</script>
+</body>
+</html>
